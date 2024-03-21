@@ -18,21 +18,27 @@ int	main(void)
 	int		fd;
 	char	*line;
 	int		i;
-	fd = open("test.c", O_RDONLY);
+	fd = open("a.out", O_RDONLY);
 
 	while (1)
 	{
+		line = NULL;
 		line = get_next_line(fd);
 		if (!line && i > 20)
 			break;
 		printf("line [%i]: %s", i, line);
 		i++;
-		if (i == 7)
+		if (i == 1)
 			close(fd);
-		if (i == 8)
+		if (i == 2)
 		{
-			fd = open("test.c", O_RDONLY);
+			fd = open("a.out", O_RDONLY);
 			printf("\n");
+			printf("input anything rly\n");
+			line = get_next_line(1);
+			printf("stdin : %s\n", line);
+			free (line);
+			line = get_next_line(1);
 		}
 		free (line);
 	}

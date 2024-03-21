@@ -36,7 +36,7 @@ char	*ft_getbuffer(char *buffer)
 	char	*temp;
 
 	nextline = ft_strchr(buffer, '\n');
-	if (nextline)
+	if (nextline && *(nextline + 1) != 0)
 		temp = ft_substr(nextline + 1, 0, ft_strlen(nextline + 1));
 	free (buffer);
 	if (!nextline || !temp)
